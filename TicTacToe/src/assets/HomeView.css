@@ -1,0 +1,95 @@
+.HomeView {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.yellow {
+  width: 100%;
+  height: 2.5rem;
+  background: #f2b237;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #cf8d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+  margin: 10px auto;
+}
+.yellow:hover {
+  background: #e79d0f;
+}
+
+.turquoise {
+  width: 100%;
+  height: 2.5rem;
+  background: #31c4bd;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #228782;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+  margin: 10px auto;
+}
+.turquoise:hover {
+  background: #279b96;
+}
+
+.SelectionWrapper {
+  background: #2b4854;
+  box-shadow: 0 2px 2px 2px #090e10;
+  border-radius: 10px;
+  padding: 5px;
+}
+.SelectionWrapper__top-text {
+  color: #a8bdc9;
+  margin: 2px;
+}
+.SelectionWrapper__bottom-text {
+  font-size: 1rem;
+  color: rgba(168, 189, 201, 0.6);
+}
+.SelectionWrapper .radio-wrapper {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+.SelectionWrapper .radio_style {
+  width: 100px;
+  height: 2.5rem;
+  width: 100%;
+  height: 2.5rem;
+  background: #a8bdc9;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #7999ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+.SelectionWrapper .radio_style:hover {
+  background: #89a5b5;
+}
+.SelectionWrapper .radio_style img {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+}
+.SelectionWrapper .radio_style input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=HomeView.css.map */

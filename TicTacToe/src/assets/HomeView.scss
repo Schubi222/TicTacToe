@@ -1,0 +1,54 @@
+@use "Button";
+@use "variables";
+.HomeView{
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.yellow{
+  @include Button.btn($color: variables.$yellow-color);
+  margin: 10px auto;
+}
+.turquoise{
+  @include Button.btn($color: variables.$turquoise-color);
+  margin: 10px auto;
+}
+
+.SelectionWrapper{
+  background: lighten(variables.$background, 10%);
+  box-shadow: 0 2px 2px 2px darken(variables.$background, 10%);
+  border-radius: 10px;
+  padding: 5px;
+  &__top-text{
+    color: variables.$neutral-color;
+    margin: 2px;
+  }
+  &__bottom-text{
+    font-size: 1rem;
+    color: transparentize(variables.$neutral-color, .4);
+  }
+  .radio-wrapper{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .radio_style{
+    width: 100px;
+    height: 2.5rem;
+    @include Button.btn($color: variables.$neutral-color);
+    position: relative;
+    img{
+      width: 80%;
+      height: 80%;
+      position: absolute;
+    }
+    input{
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

@@ -9,6 +9,9 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+:root * {
+  font-size: 1.2rem;
+}
 
 body {
   margin: 0;
@@ -19,10 +22,11 @@ body {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
