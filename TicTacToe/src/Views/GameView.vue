@@ -1,19 +1,21 @@
 <template>
 <div class="Game-View">
-  <div class="Top-Row"></div>
+<!--TODO: blur  -->
+  <div class="Top-Row">
+  </div>
   <GameField/>
   <div class="Bottom-Row">
     <div class="x-tile">
-      <span>X ({{settings.X.Player}})</span>
-      {{settings.X.Score}}
+      <span>X ({{X}})</span>
+      {{score.x_wins}}
     </div>
     <div class="tie-tile">
       <span>TIES</span>
-      {{settings.Ties}}
+      {{score.ties}}
     </div>
     <div class="o-tile">
-      <span>X ({{settings.O.Player}})</span>
-      {{settings.O.Score}}
+      <span>O ({{O}})</span>
+      {{score.o_wins}}
     </div>
   </div>
 </div>
@@ -22,14 +24,20 @@
 <script setup lang="ts">
 import GameField from "../components/GameField.vue";
 import {ref} from "vue";
-const settings = ref({
-  X: {Player:'PLAYER 1', Score:0},
-  O: {Player:'PLAYER 2', Score:0},
-  Ties:0
-})
+import {useGameStore} from "../stores/GameStore.ts";
+import {storeToRefs} from "pinia";
+
+const store = useGameStore()
+const {score, X, O, active_player} = storeToRefs(store)
+
+
 
 </script>
 
 <style scoped>
 @import "@/assets/GameView.css";
+.blur ~ .Bottom-Row{
+  filter: blur(4px);
+}
+
 </style>

@@ -6,6 +6,12 @@
   margin: 20px 0;
   width: 100%;
 }
+.Game-Field.blur {
+  filter: blur(4px);
+}
+.Game-Field.blur > * {
+  pointer-events: none;
+}
 .Game-Field .game-tiles {
   background: #2b4854;
   aspect-ratio: 1/1;
@@ -23,12 +29,16 @@
 }
 
 .Win-Overlay {
-  background: #3d6575;
+  background: #345664;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100vw;
+  height: fit-content;
   padding: 20px 0;
+  margin: auto;
 }
 .Win-Overlay .inner-overlay {
   width: 400px;
@@ -42,6 +52,15 @@
   display: flex;
   align-items: center;
   gap: 30px;
+}
+.Win-Overlay .takes_round_p {
+  font-weight: bold;
+}
+.Win-Overlay .takes_round_p.turquoise {
+  color: #31c4bd;
+}
+.Win-Overlay .takes_round_p.yellow {
+  color: #f2b237;
 }
 .Win-Overlay .buttons {
   display: flex;
