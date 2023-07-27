@@ -1,0 +1,32 @@
+@use "Mixins";
+@use "variables";
+
+.x-tile{
+  @include Mixins.score-tile($color:variables.$turquoise-color)
+}
+.tie-tile{
+  @include Mixins.score-tile($color:variables.$neutral-color)
+}
+.o-tile{
+  @include Mixins.score-tile($color:variables.$yellow-color)
+}
+.Game-View{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  .Bottom-Row{
+    display: flex;
+    gap: 15px;
+    div{
+      font-weight: bold;
+    }
+    div > span{
+      font-size: .9rem;
+      color: transparentize(variables.$background, .2);
+    }
+
+  }
+}
+
+

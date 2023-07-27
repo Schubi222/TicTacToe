@@ -1,0 +1,60 @@
+@use "variables";
+@use "Mixins";
+.Game-Field{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin: 20px 0;
+  width: 100%;
+
+  .game-tiles{
+    background: lighten(variables.$background,10%);
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 4px darken(variables.$background, 30%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:empty{
+      cursor: pointer;
+      &:hover{
+        filter: drop-shadow(0 3px 4px lighten(variables.$background, 30%));
+      }
+    }
+  }
+}
+.Win-Overlay{
+  background: lighten(variables.$background, 20%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width:100vw;
+  padding: 20px 0;
+  .inner-overlay{
+    width: 400px;
+    margin: 0 auto;
+  }
+  .you-won{
+    font-size: .9rem;
+    color: variables.$neutral-color;
+  }
+  .winner{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .buttons{
+    display: flex;
+    justify-content: center;
+    margin: 0 20%;
+    .quit{
+      width: 40% !important;
+      @include Mixins.btn($color:variables.$neutral-color)
+    }
+    .next{
+      @include Mixins.btn($color:variables.$yellow-color)
+    }
+  }
+}

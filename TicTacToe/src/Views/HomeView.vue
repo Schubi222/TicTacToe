@@ -9,7 +9,7 @@
       <div class="radio-wrapper">
         <div class="radio_style">
           <img src="/X.svg" alt="">
-          <input type="radio" id="X" name="mark" value="X">
+          <input type="radio" id="X" name="mark" value="X" checked>
         </div>
         <div class="radio_style">
           <img src="/O.svg" alt="">

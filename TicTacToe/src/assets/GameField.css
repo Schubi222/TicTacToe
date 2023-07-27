@@ -1,0 +1,85 @@
+.Game-Field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin: 20px 0;
+  width: 100%;
+}
+.Game-Field .game-tiles {
+  background: #2b4854;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  filter: drop-shadow(0 4px 4px black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Game-Field .game-tiles:empty {
+  cursor: pointer;
+}
+.Game-Field .game-tiles:empty:hover {
+  filter: drop-shadow(0 3px 4px #4e8297);
+}
+
+.Win-Overlay {
+  background: #3d6575;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100vw;
+  padding: 20px 0;
+}
+.Win-Overlay .inner-overlay {
+  width: 400px;
+  margin: 0 auto;
+}
+.Win-Overlay .you-won {
+  font-size: 0.9rem;
+  color: #a8bdc9;
+}
+.Win-Overlay .winner {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.Win-Overlay .buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0 20%;
+}
+.Win-Overlay .buttons .quit {
+  width: 40% !important;
+  width: 100%;
+  height: 2.5rem;
+  background: #a8bdc9;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #7999ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.Win-Overlay .buttons .quit:hover {
+  background: #89a5b5;
+}
+.Win-Overlay .buttons .next {
+  width: 100%;
+  height: 2.5rem;
+  background: #f2b237;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #cf8d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.Win-Overlay .buttons .next:hover {
+  background: #e79d0f;
+}
+
+/*# sourceMappingURL=GameField.css.map */

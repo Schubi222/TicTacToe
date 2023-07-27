@@ -1,4 +1,4 @@
-@use "Button";
+@use "Mixins";
 @use "variables";
 .HomeView{
   max-width: 400px;
@@ -7,11 +7,11 @@
   flex-direction: column;
 }
 .yellow{
-  @include Button.btn($color: variables.$yellow-color);
+  @include Mixins.btn($color: variables.$yellow-color);
   margin: 10px auto;
 }
 .turquoise{
-  @include Button.btn($color: variables.$turquoise-color);
+  @include Mixins.btn($color: variables.$turquoise-color);
   margin: 10px auto;
 }
 
@@ -36,8 +36,11 @@
   .radio_style{
     width: 100px;
     height: 2.5rem;
-    @include Button.btn($color: variables.$neutral-color);
+    @include Mixins.btn($color: variables.$neutral-color);
     position: relative;
+    &:has(input:checked){
+      @include Mixins.btn($color: darken(variables.$neutral-color, 20%));
+    }
     img{
       width: 80%;
       height: 80%;
@@ -49,6 +52,7 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      cursor: pointer !important;
     }
   }
 }

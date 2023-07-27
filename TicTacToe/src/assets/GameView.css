@@ -1,0 +1,58 @@
+.x-tile {
+  width: 100%;
+  height: 3rem;
+  background: #31c4bd;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #2cb0a9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.tie-tile {
+  width: 100%;
+  height: 3rem;
+  background: #a8bdc9;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #98b1bf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.o-tile {
+  width: 100%;
+  height: 3rem;
+  background: #f2b237;
+  border-radius: 10px;
+  box-shadow: 0 2px 0 2px #f0a91f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.Game-View {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.Game-View .Bottom-Row {
+  display: flex;
+  gap: 15px;
+}
+.Game-View .Bottom-Row div {
+  font-weight: bold;
+}
+.Game-View .Bottom-Row div > span {
+  font-size: 0.9rem;
+  color: rgba(26, 43, 50, 0.8);
+}
+
+/*# sourceMappingURL=GameView.css.map */
