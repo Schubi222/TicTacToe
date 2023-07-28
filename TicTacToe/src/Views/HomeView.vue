@@ -33,7 +33,7 @@ import router from "../router";
 import {ref} from "vue";
 
 const store = useGameStore()
-const {active_player,cpu, X, O} = storeToRefs(store)
+const {active_player,cpu, X, O, cpu_marker} = storeToRefs(store)
 
 const player1_mark = ref('X')
 
@@ -47,6 +47,7 @@ function startNewGame(cpu_active:boolean = false){
     O.value = 'PLAYER 1'
     X.value = 'PLAYER 2'
   }
+  if (cpu_active){cpu_marker.value = player1_mark.value === 'X' ? 'O' : 'X'}
   router.push('/play')
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="Game-Field" :class="{blur:game_stop}">
+  <div class="Game-Field" :class="{blur:game_stop}" ref="wrapper">
     <div class="game-tiles" @click="placeMark" v-for="(tile,index) in game_field" :id="`${index}`">
       <img v-if="tile" :src="`/${svg_computed(tile)}`" alt="placed mark" class="placed_mark">
     </div>
@@ -20,9 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import {Ref, ref} from "vue";
+import {onMounted, Ref, ref} from "vue";
   import {useGameStore} from "../stores/GameStore.ts";
   import {storeToRefs} from "pinia";
+  import {makeTurn} from "../AI.ts"
 
   const store = useGameStore()
   const {active_player, score, cpu, cpu_marker} = storeToRefs(store)
@@ -35,7 +36,8 @@ import {Ref, ref} from "vue";
   const end_message = ref('')
   const tie = ref(false)
 
-  const takes_round_p:any = ref()
+  const takes_round_p:any = ref(null)
+  const wrapper:any = ref(null)
 
 const svg_computed = (mark:string|undefined) => {
     return mark === 'X' ? 'X_turquoise.svg' : 'O_yellow.svg'
@@ -45,9 +47,23 @@ function placeMark(e:any){
   if (e.target.children.length !== 0 || game_stop){
     return
   }
+
   game_field.value[parseInt(e.target.id.substring(0))] = active_player.value
   checkForWin()
   active_player.value = active_player.value === "X" ? "O" : "X"
+  if (cpu.value && !game_stop) {
+    cpuMove()
+  }
+}
+
+function cpuMove(){
+  if (cpu.value && !game_stop){
+    wrapper.value.style.pointerEvents = "none"
+    game_field.value[makeTurn(game_field.value)] = cpu_marker.value
+    checkForWin()
+    active_player.value = active_player.value === "X" ? "O" : "X"
+    wrapper.value.style.pointerEvents = "unset"
+  }
 }
 
 function checkForWin(){
@@ -115,7 +131,16 @@ const restartRound = () => {
   end_message.value = ''
   winning_player.value = undefined
   tie.value = false
+  if (cpu.value && cpu_marker.value === 'X'){
+    cpuMove()
+  }
 }
+
+onMounted(() =>{
+  if (cpu.value && cpu_marker.value === 'X'){
+    cpuMove()
+  }
+})
 
 defineExpose({restartRound})
 </script>
