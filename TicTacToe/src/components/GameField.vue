@@ -13,7 +13,7 @@
       </div>
       <div class="buttons">
          <div class="quit" @click="$router.push('/')">QUIT</div>
-        <div class="next">NEXT ROUND</div>
+        <div class="next" @click="restartRound">NEXT ROUND</div>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@ import {Ref, ref} from "vue";
   const {active_player, score, cpu, cpu_marker} = storeToRefs(store)
 
   let game_field: Ref<Array<undefined|string>> = ref(
-      [undefined,undefined,undefined, undefined,undefined,undefined, undefined,undefined,undefined]
+      new  Array(9).fill(undefined)
   )
   let game_stop = false
   const winning_player: Ref<undefined|string> = ref(undefined)
@@ -41,7 +41,6 @@ const svg_computed = (mark:string|undefined) => {
     console.log(mark)
     return mark === 'X' ? 'X_turquoise.svg' : 'O_yellow.svg'
   }
-
 
 function placeMark(e:any){
   if (e.target.children.length !== 0 || game_stop){
@@ -110,9 +109,15 @@ function gameEnds(winner:string|undefined){
   if (cpu.value && active_player.value === cpu_marker.value){
     end_message.value = 'YOU LOST'
   }
+}
 
-
-
+function restartRound(){
+  active_player.value = 'X'
+  game_field.value = new Array(9).fill(undefined)
+  game_stop = false
+  end_message.value = ''
+  winning_player.value = undefined
+  tie.value = false
 }
 </script>
 
