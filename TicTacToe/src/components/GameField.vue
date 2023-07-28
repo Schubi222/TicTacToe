@@ -1,6 +1,6 @@
 <template>
   <div class="Game-Field" :class="{blur:game_stop}" ref="wrapper">
-    <div class="game-tiles" @click="placeMark" v-for="(tile,index) in game_field" :id="`${index}`">
+    <div class="game-tiles noSelect" @click="placeMark" v-for="(tile,index) in game_field" :id="`${index}`">
       <img v-if="tile" :src="`/${svg_computed(tile)}`" alt="placed mark" class="placed_mark">
     </div>
   </div>
@@ -44,7 +44,7 @@ const svg_computed = (mark:string|undefined) => {
   }
 
 function placeMark(e:any){
-  if (e.target.children.length !== 0 || game_stop){
+  if (e.target.children.length !== 0 || game_stop || game_field.value[parseInt(e.target.id.substring(0))]){
     return
   }
 
@@ -103,6 +103,8 @@ function gameEnds(winner:string|undefined){
   if (winner === 'X'){
     score.value.x_wins += 1
     takes_round_p.value.classList.add('turquoise')
+    takes_round_p.value.classList.remove('yellow')
+
     if (!cpu.value){
       end_message.value = 'YOU WON'
     }
@@ -110,16 +112,17 @@ function gameEnds(winner:string|undefined){
   else if (winner === 'O'){
     score.value.o_wins += 1
     takes_round_p.value.classList.add('yellow')
+    takes_round_p.value.classList.remove('turquoise')
     if (!cpu.value){
       end_message.value = 'YOU WON'
     }
   }
-  else{
+  else if(winner === 'Tie'){
     score.value.ties += 1
     end_message.value = 'IT\'S A TIE'
   }
 
-  if (cpu.value && active_player.value === cpu_marker.value){
+  else if (cpu.value && active_player.value === cpu_marker.value){
     end_message.value = 'YOU LOST'
   }
 }
@@ -137,6 +140,7 @@ const restartRound = () => {
 }
 
 onMounted(() =>{
+  console.log(cpu.value)
   if (cpu.value && cpu_marker.value === 'X'){
     cpuMove()
   }

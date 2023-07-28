@@ -1,5 +1,6 @@
 .HomeView {
   max-width: 400px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -26,7 +27,17 @@
   margin: 10px;
   transition: 0.4s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   margin: 10px auto;
+}
+.yellow:focus {
+  outline: none !important;
 }
 .yellow:hover {
   background: #e79d0f;
@@ -44,7 +55,17 @@
   margin: 10px;
   transition: 0.4s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   margin: 10px auto;
+}
+.turquoise:focus {
+  outline: none !important;
 }
 .turquoise:hover {
   background: #279b96;
@@ -83,7 +104,17 @@
   margin: 10px;
   transition: 0.4s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: relative;
+}
+.SelectionWrapper .radio_style:focus {
+  outline: none !important;
 }
 .SelectionWrapper .radio_style:hover {
   background: #89a5b5;
@@ -100,6 +131,16 @@
   margin: 10px;
   transition: 0.4s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.SelectionWrapper .radio_style:has(input:checked):focus {
+  outline: none !important;
 }
 .SelectionWrapper .radio_style:has(input:checked):hover {
   background: #537385;

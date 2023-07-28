@@ -42,7 +42,8 @@
   padding: 20px 0;
   margin: auto;
   .inner-overlay{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
   }
   .you-won{

@@ -41,6 +41,7 @@
   display: flex;
   flex-direction: column;
   max-width: 400px;
+  width: 100%;
   margin: 0 auto;
 }
 .Game-View .Top-Row {
@@ -68,10 +69,20 @@
   margin: 10px;
   transition: 0.4s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 40px;
   font-weight: bold;
   font-size: 1.7rem;
   justify-self: right;
+}
+.Game-View .Top-Row .restart-round:focus {
+  outline: none !important;
 }
 .Game-View .Top-Row .restart-round:hover {
   background: #89a5b5;

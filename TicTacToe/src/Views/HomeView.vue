@@ -19,7 +19,7 @@
       <div class="SelectionWrapper__bottom-text">REMEMBER: X GOES FIRST</div>
     </div>
     <div class="yellow" @click="startNewGame(true)">NEW GAME (VS CPU)</div>
-    <div class="turquoise" @click="startNewGame" >NEW GAME (VS PLAYER)</div>
+    <div class="turquoise" @click="startNewGame(false)" >NEW GAME (VS PLAYER)</div>
 
   </div>
 </template>
@@ -37,7 +37,7 @@ const {active_player,cpu, X, O, cpu_marker} = storeToRefs(store)
 
 const player1_mark = ref('X')
 
-function startNewGame(cpu_active:boolean = false){
+function startNewGame(cpu_active:boolean){
   store.reset()
   cpu.value = cpu_active
   if (player1_mark.value === 'X'){
