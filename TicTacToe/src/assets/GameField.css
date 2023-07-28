@@ -52,6 +52,12 @@
   display: flex;
   align-items: center;
   gap: 30px;
+  padding: 10px 0;
+  justify-content: center;
+}
+.Win-Overlay .winner img {
+  width: 70px;
+  height: 70px;
 }
 .Win-Overlay .takes_round_p {
   font-weight: bold;

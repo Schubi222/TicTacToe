@@ -38,7 +38,6 @@ import {Ref, ref} from "vue";
   const takes_round_p:any = ref()
 
 const svg_computed = (mark:string|undefined) => {
-    console.log(mark)
     return mark === 'X' ? 'X_turquoise.svg' : 'O_yellow.svg'
   }
 
@@ -78,14 +77,12 @@ function checkForDraw(){
     if (game_field.value[i] === undefined){return}
   }
   tie.value = true
-  console.log(tie.value)
   gameEnds('Tie')
 }
 
 function gameEnds(winner:string|undefined){
   winning_player.value = winner
   game_stop = true
-  console.log(takes_round_p.value)
 
   if (winner === 'X'){
     score.value.x_wins += 1
@@ -111,7 +108,7 @@ function gameEnds(winner:string|undefined){
   }
 }
 
-function restartRound(){
+const restartRound = () => {
   active_player.value = 'X'
   game_field.value = new Array(9).fill(undefined)
   game_stop = false
@@ -119,6 +116,8 @@ function restartRound(){
   winning_player.value = undefined
   tie.value = false
 }
+
+defineExpose({restartRound})
 </script>
 
 <style scoped>

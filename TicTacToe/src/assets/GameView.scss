@@ -2,19 +2,55 @@
 @use "variables";
 
 .x-tile{
-  @include Mixins.score-tile($color:variables.$turquoise-color)
+  @include Mixins.score-tile($color:variables.$turquoise-color);
 }
 .tie-tile{
-  @include Mixins.score-tile($color:variables.$neutral-color)
+  @include Mixins.score-tile($color:variables.$neutral-color);
 }
 .o-tile{
-  @include Mixins.score-tile($color:variables.$yellow-color)
+  @include Mixins.score-tile($color:variables.$yellow-color);
 }
 .Game-View{
   display: flex;
   flex-direction: column;
   max-width: 400px;
   margin: 0 auto;
+  .Top-Row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    .symbols{
+      display: flex;
+      gap: 5px;
+      img{
+        height: 30px;
+      }
+    }
+    .restart-round{
+      @include Mixins.btn($color:variables.$neutral-color);
+      width: 40px;
+      font-weight: bold;
+      font-size: 1.7rem;
+      justify-self: right;
+    }
+    .turn{
+      @include Mixins.score-tile($color:lighten(variables.$background,25%));
+      width: fit-content;
+      flex-direction: row;
+      padding: 0 10px;
+      gap: 5px;
+      height: 40px !important;
+      font-size: .9rem;
+      font-weight: bold;
+      justify-self: center;
+      img{
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
   .Bottom-Row{
     display: flex;
     gap: 15px;
@@ -25,7 +61,6 @@
       font-size: .9rem;
       color: transparentize(variables.$background, .2);
     }
-
   }
 }
 

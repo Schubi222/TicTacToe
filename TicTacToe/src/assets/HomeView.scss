@@ -5,6 +5,15 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  .Top-Symbols{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    img{
+      height: 30px;
+    }
+  }
 }
 .yellow{
   @include Mixins.btn($color: variables.$yellow-color);

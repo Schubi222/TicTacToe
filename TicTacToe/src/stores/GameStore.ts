@@ -13,5 +13,18 @@ export const useGameStore = defineStore('game',() =>{
     })
     const active_player = ref('X')
 
-    return{X, O, cpu, score, active_player, cpu_marker}
+    const reset = () =>{
+        X.value = 'PLAYER 1'
+        O.value = 'PLAYER 2'
+        cpu.value = false
+        cpu_marker.value = 'O'
+        score.value = {
+            x_wins:0,
+            o_wins:0,
+            ties:0,
+        }
+        active_player.value = 'X'
+    }
+
+    return{X, O, cpu, score, active_player, cpu_marker, reset}
 })
